@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= animal.name %></title>
+</head>
+<body>
+    <h1><%= animal.name %></h1>
+    <% if (animal.isMammal) { %>
+    <p>This animal is a mammal.</p>
+    <p>Mammals are easily identifiable by having hair or fur.</p>
+    <% } %>
+    <% if (animal.isBird) { %>
+    <p>This animal is a bird.</p>
+    <p>Birds are identifiable by having feathers.</p>
+    <p>Most but not all birds can fly.</p>
+    <% } %>
+    <% if (animal.isReptile) { %>
+    <p>Reptiles are identifiable by having scales.</p>
+    <p>Reptiles are cold-blooded so their body temperature is controlled by their environment</p>
+    <% } %>
+    <% if (animal.isFish) { %>
+    <p>Fish are identifiable by having fins and gills.</p>
+    <p>Fish use their gills to breathe and get oxygen from water.</p>
+    <% } %>
+    <% if (animal.isAmphibian) { %>
+    <p>Amphibians are identifiable by having both gills and lungs.</p>
+    <p>This allows them to live both in water and on land.</p>
+    <p>The word amphibian comes from the Greek word amphibios, meaning "both kinds of life".</p>
+    <% } %>
+
+    <form action="/animals/<%=animal._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= animal.name %></button>
+    </form>
+
+    <a href="/animals/<%= animal._id %>/edit">Edit <%= animal.name %></a>
+    <a href="/animals/">Back to Animals</a>
+    <a href="/">Home Page</a>
+</body>
+</html>
